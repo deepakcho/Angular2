@@ -11,10 +11,8 @@ export class AppComponent {
   isDrag={val:false};
   setStatus=function(e:any){
     console.log(e);
-    this.isDrag.val=e;
+    this.isDrag=e;
   }
-  getStatus=function(){
-    return this.isDrag;
-  }
+
 
 }

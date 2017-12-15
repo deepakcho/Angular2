@@ -14,6 +14,7 @@ export class DrapAndDropDirective implements DoCheck{
   @Input('DropTarget') DropTarget:any;
   @Output() DragStart=new EventEmitter();
 
+
   DragDropService:DragDropService;
   private ele: any;
   constructor(ElementRef:ElementRef) {
@@ -24,12 +25,7 @@ export class DrapAndDropDirective implements DoCheck{
   @HostListener('dragstart', ['$event']) dragStartListener($event: any) {
     $event.dataTransfer.setData("text", this.sourceId);
     $event.target.classList.add('dragged-item');
-    // this.DragDropService.setDragStatus(true);
-    // if(this.DragDropService.getDragStatus()){
-    //   $event.target.classList.add('drag-target');
-    // }
- 
-    this.DragStart.emit(true);
+    this.DragStart.emit({'val':true});
 
   }
 
@@ -37,7 +33,7 @@ export class DrapAndDropDirective implements DoCheck{
     $event.target.classList.remove('dragged-item');
     $event.target.classList.remove('drag-target');
     $event.target.classList.remove('drag-over');
-    this.DragStart.emit(false);
+    this.DragStart.emit({'val':false});
     $event.preventDefault();
   }
 
@@ -60,9 +56,9 @@ export class DrapAndDropDirective implements DoCheck{
     $event.target.classList.add('drag-over');
   }
 
-  @HostListener('click', ['$event']) clickHandler($event) {
-    alert(this.sourceId);
-  }
+  // @HostListener('click', ['$event']) clickHandler($event) {
+  //   alert(this.sourceId);
+  // }
 
   ngDoCheck(){
     //console.log(this.DropTarget,this.sourceId,this.ele.nativeElement);
