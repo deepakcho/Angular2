@@ -1,9 +1,8 @@
 .demo{
-    background: #ecba6f;
+    background: #008dd2;
 }
 
 .top,.bottom{
-    height: 60px;
     width: 100%;
 }
 
@@ -15,7 +14,6 @@
 
 
 .left,.right{
-    width: 60px;
     height: 100%;
     position: fixed;
 }
@@ -36,4 +34,26 @@
 
 .drag-target{
     background: #ccc;
+
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.drag-target.top,
+.drag-target.bottom{
+    height: 60px;
+}
+
+.drag-target.left,
+.drag-target.right{
+    width: 60px;
+}
+
+.current{
+    animation: none;
+}
+
+.current.drag-target{
+    background: #008dd2;
+    width: 100%;
 }

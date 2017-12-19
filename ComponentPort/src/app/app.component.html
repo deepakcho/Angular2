@@ -1,6 +1,73 @@
-<div class="demo top" appDrapAndDrop [sourceId]="'top'" (DragStart)='setStatus($event)'  [DropTarget]='isDrag' draggable="true"></div>
-<div class="demo left" appDrapAndDrop [sourceId]="'left'" (DragStart)='setStatus($event)' [DropTarget]='isDrag'   draggable="true"></div>
-<div class="demo right" appDrapAndDrop [sourceId]="'right'" (DragStart)='setStatus($event)' [DropTarget]='isDrag'   draggable="true"></div>
-<div class="demo bottom" appDrapAndDrop [sourceId]="'bottom'" (DragStart)='setStatus($event)' [DropTarget]='isDrag'  draggable="true"></div>
+<div class="demo top" [ngClass]="{'current':isDrag.draggedElem == 'top'}" appDrapAndDrop [sourceId]="'top'" (DragStart)='setStatus($event)'
+    [DropTarget]='isDrag' (DropObject)="setPosition($event)" draggable="true">
 
+    <ul class="nav" *ngIf="positon=='top'">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+    </ul>
 
+</div>
+<div class="demo left" [ngClass]="{'current':isDrag.draggedElem == 'left'}" appDrapAndDrop [sourceId]="'left'" (DragStart)='setStatus($event)'
+    [DropTarget]='isDrag' (DropObject)="setPosition($event)" draggable="true">
+    <ul class="nav" *ngIf="positon=='left'">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+    </ul>
+
+</div>
+<div class="demo right" [ngClass]="{'current':isDrag.draggedElem == 'right'}" appDrapAndDrop [sourceId]="'right'" (DragStart)='setStatus($event)'
+    [DropTarget]='isDrag' (DropObject)="setPosition($event)" draggable="true">
+
+    <ul class="nav" *ngIf="positon=='right'">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+    </ul>
+</div>
+<div class="demo bottom" [ngClass]="{'current':isDrag.draggedElem == 'bottom'}" appDrapAndDrop [sourceId]="'bottom'" (DragStart)='setStatus($event)'
+    [DropTarget]='isDrag' (DropObject)="setPosition($event)" draggable="true">
+    <ul class="nav" *ngIf="positon=='bottom'">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+    </ul>
+
+</div>

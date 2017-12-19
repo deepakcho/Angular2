@@ -8,11 +8,17 @@ import { DrapAndDropDirective } from './directive/drap-and-drop.directive';
 })
 export class AppComponent {
   title = 'app';
-  isDrag={val:false};
-  setStatus=function(e:any){
+  isDrag = { val: false };
+  positon = 'top';
+
+  setStatus = function (e: any) {
     console.log(e);
-    this.isDrag=e;
-  }
+    this.isDrag = e;
+  };
+
+  setPosition = function (e: any) {
+    this.positon = e.dropTo;
+  };
 
 
 }
